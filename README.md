@@ -16,12 +16,21 @@ Criação de um software para planejamento de projetos, atividades e carga horar
 - Gustavo Ribeiro
 - Gabriel Queiroz
 - Carolina 
-- Edimar
+- Eguimar
 
 # Resultados:
 - Aqui postaremos updates sobre o projeto, desenvolvimento, testes e etc.
 
 - Pode usar textos, imagens, gifs animadas (excelentes para mostrar o código rodando e etc!!!)
+
+## Introdução:
+- O objetivo do projeto é desenvolver uma software de visão estrategica de projetos e tarefas. Esse software terá alguns requisitos funcionais pré-estabelecidos pelo cliente que seram listados abaixo.
+
+## Problema:
+- Nosso cliente da Necto (Empresa desenvolvedora de software) nos contatou e explicou o problema que tinha em sua empresa.
+"Eu  tenho visão estrategica dos projetos, tarefas e horas trabalhadas pelos meus funcionario, porém eu gostaria de um software com mais funcionalidades do que o metodo que é utilizo atualmente."
+
+Com isso, ele passou os requistos que ele gostaria que esse software tivesse para o P.O do time.
     
     
   
