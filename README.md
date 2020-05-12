@@ -39,6 +39,7 @@ Com isso, foi definido o desenvolvimento de um software com base no diagrama de 
 
 ## Requisitos Funcionais:
 Os requisitos funcionais da aplicação são:
+
 |Identificador|Nome|Descrição|
 |----|--|----------|
 | RF001 | Logar | Sistema de autenticação do usuário ou administrador.|
