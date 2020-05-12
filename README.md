@@ -33,8 +33,6 @@ Nosso cliente da Necto (Empresa desenvolvedora de software) nos contatou e expli
 
 Com isso, foi definido o desenvolvimento de um software com base no diagrama de Gantt, como esse por exemplo:
 
-<img scr="https://www.twygoead.com/site/wp-content/uploads/2019/09/cronograma-artia.png">
-<img scr="https://mlberon2b2mx.i.optimole.com/w:378/h:170/q:auto/https://flowup.me/blog/wp-content/uploads/2018/08/2018-08-06.png">
 
 # Requisitos Indentificados:
 
@@ -78,7 +76,8 @@ Os requisitos não-funcionais da aplicação são:
         - DHT: Biblioteca para criação de graficos interativos
         - Spring Web: Framework para criação de páginas web com Java
     -SQL
-    
+
+
 - Metodos: 
     - Scrum
     - As 10 heuriticas de Nielsen
