@@ -35,7 +35,8 @@ Com isso, foi definido o desenvolvimento de um software com base no diagrama de 
 
 <img scr="https://www.twygoead.com/site/wp-content/uploads/2019/09/cronograma-artia.png">
 
-#Requisitos Indentificados:
+
+# Requisitos Indentificados:
 
 ## Requisitos Funcionais:
 Os requisitos funcionais da aplicação são:
@@ -56,9 +57,20 @@ Os requisitos funcionais da aplicação são:
 | RF011	| Visualizar Hora/Data | Permite a visualização da distribuição de horas pelos projetos e suas datas, e horas disponíveis de programadores da equipe.|
 | RNF012 | Visualizar Projetos | Permite a visualização de uma lista contendo todos os projetos em andamento.|
 
+## Requisitos Não-Funcionais
+Os requisitos não-funcionais da aplicação são:
 
-    
-  
+|Nome|Descrição| 
+|--|----------|
+| Visibilidade do Status do Sistema | Ao logar o usuário é direcionado a uma página contendo um menu lateral com as opções de visualização de projetos, atividades, equipe e no caso do administrador a possibilidade também de criar, editar e excluir.|
+| Compatibilidade entre o Sistema e o Mundo Real | A interface do sistema possui símbolos utilizados para facilitar a navegação.|
+| Controle e Liberdade para o Usuário | O sistema tem a possibilidade de navegar pelas informações e se necessário abri-las em uma nova página.|
+| Consistência e Padronização | Layout padronizado em relação aos gráficos e cores.|
+| Prevenção de erros | Para criação, edição e exclusão são usados pop-ups de confirmação.|
+| Estética e Design Minimalista | É usado um menu lateral para manter a organização das páginas e suas informações.|
+| Reconhecimento, Diagnostico e Recuperação de Erros | Ao criar e editar possui avisos de formulários nos campos que não foram preenchidos corretamente.|
+| Ajuda e documentação | Documentação sobre o sistema no rodapé.|
+
     
     
   
