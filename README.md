@@ -74,14 +74,16 @@ Os requisitos não-funcionais da aplicação são:
 
 ## Tecnologias e Metodos de trabalho sendo utilizadas:
 - Tecnologias:
--- Java
---- DHT: Biblioteca para criação de graficos interativos
---- Spring Web: Framework para criação de páginas web com Java
---SQL
+
+    - Java
+
+        - DHT: Biblioteca para criação de graficos interativos
+        - Spring Web: Framework para criação de páginas web com Java
+    -SQL
 
 - Metodos: 
--- Scrum
--- As 10 heuriticas de Nielsen
+    - Scrum
+    - As 10 heuriticas de Nielsen
 
     
     
