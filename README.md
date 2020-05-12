@@ -33,7 +33,6 @@ Nosso cliente da Necto (Empresa desenvolvedora de software) nos contatou e expli
 
 Com isso, foi definido o desenvolvimento de um software com base no diagrama de Gantt, como esse por exemplo:
 
-![] (https://www.twygoead.com/site/wp-content/uploads/2019/09/cronograma-artia.png)
 <img scr="https://www.twygoead.com/site/wp-content/uploads/2019/09/cronograma-artia.png">
     
   
