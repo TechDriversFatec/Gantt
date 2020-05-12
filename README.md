@@ -33,7 +33,7 @@ Nosso cliente da Necto (Empresa desenvolvedora de software) nos contatou e expli
 
 Com isso, foi definido o desenvolvimento de um software com base no diagrama de Gantt, como esse por exemplo:
 
-![] (https://www.google.com/url?sa=i&url=https%3A%2F%2Fflowup.me%2Fblog%2Fcomo-utilizar-o-diagrama-de-gantt-no-flowup%2F&psig=AOvVaw0LC1nPJXDzcoFCbjzy1ucv&ust=1589328574006000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLC63L2ErekCFQAAAAAdAAAAABAD)
+![] (https://www.twygoead.com/site/wp-content/uploads/2019/09/cronograma-artia.png)
     
   
     
