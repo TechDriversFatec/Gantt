@@ -71,6 +71,18 @@ Os requisitos não-funcionais da aplicação são:
 | Reconhecimento, Diagnostico e Recuperação de Erros | Ao criar e editar possui avisos de formulários nos campos que não foram preenchidos corretamente.|
 | Ajuda e documentação | Documentação sobre o sistema no rodapé.|
 
+
+## Tecnologias e Metodos de trabalho sendo utilizadas:
+- Tecnologias:
+-- Java
+--- DHT: Biblioteca para criação de graficos interativos
+--- Spring Web: Framework para criação de páginas web com Java
+--SQL
+
+- Metodos: 
+-- Scrum
+-- As 10 heuriticas de Nielsen
+
     
     
   
