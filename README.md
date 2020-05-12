@@ -34,6 +34,7 @@ Nosso cliente da Necto (Empresa desenvolvedora de software) nos contatou e expli
 Com isso, foi definido o desenvolvimento de um software com base no diagrama de Gantt, como esse por exemplo:
 
 ![](/projeto-integrador-gantt/cronograma-artia.png)
+![](https://gitlab.com/gurst6/projeto-integrador-gantt/-/blob/master/cronograma-artia.png)
 
 # Requisitos Indentificados:
 
