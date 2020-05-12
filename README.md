@@ -27,11 +27,13 @@ Criação de um software para planejamento de projetos, atividades e carga horar
 - O objetivo do projeto é desenvolver uma software de visão estrategica de projetos e tarefas. Esse software terá alguns requisitos funcionais pré-estabelecidos pelo cliente que seram listados abaixo.
 
 ## Problema:
-- Nosso cliente da Necto (Empresa desenvolvedora de software) nos contatou e explicou o problema que tinha em sua empresa.
+Nosso cliente da Necto (Empresa desenvolvedora de software) nos contatou e explicou o problema que tinha em sua empresa.
 
 >**"Eu  tenho visão estrategica dos projetos, tarefas e horas trabalhadas pelos meus funcionario, porém eu gostaria de um software com mais funcionalidades do que o metodo que é utilizo atualmente."**
 
-Com isso, ele passou os requistos que ele gostaria que esse software tivesse para o P.O do time.
+Com isso, foi definido o desenvolvimento de um software com base no diagrama de Gantt, como esse por exemplo:
+
+<img "https://www.google.com/url?sa=i&url=https%3A%2F%2Fflowup.me%2Fblog%2Fcomo-utilizar-o-diagrama-de-gantt-no-flowup%2F&psig=AOvVaw0LC1nPJXDzcoFCbjzy1ucv&ust=1589328574006000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLC63L2ErekCFQAAAAAdAAAAABAD">
     
     
   
