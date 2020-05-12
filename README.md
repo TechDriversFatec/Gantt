@@ -34,6 +34,28 @@ Nosso cliente da Necto (Empresa desenvolvedora de software) nos contatou e expli
 Com isso, foi definido o desenvolvimento de um software com base no diagrama de Gantt, como esse por exemplo:
 
 <img scr="https://www.twygoead.com/site/wp-content/uploads/2019/09/cronograma-artia.png">
+
+#Requisitos Indentificados:
+
+## Requisitos Funcionais:
+Os requisitos funcionais da aplicação são:
+|Identificador|Nome|Descrição|
+|----|--|----------|
+| RF001 | Logar | Sistema de autenticação do usuário ou administrador.|
+| RF002 | Deslogar | Permite deslogar um perfil da página do sistema.|
+| RF003 | Criar Projeto | Permite a criação de novos projetos.|
+| RF004 | Editar Projeto | Permite a edição de projetos já existentes.|
+| RF005	| Excluir Projeto | Permite a exclusão de um projeto.|
+| RF006	| Criar Atividade | Permite criar uma atividade dentro de um projeto.|
+| RF007	| Editar Atividade | Permite a edição de uma atividade já existente.|
+| RF008	| Excluir Atividade	| Permite excluir uma atividade dentro de um projeto.|
+| RF009	| Cadastrar Perfil Programador | Possibilita o cadastramento dos programadores.|
+| RF010 | Editar Perfil Programador | Possibilita a edição de um perfil de programador.|
+| RF010	| Excluir Perfil Programador | Permite a exclusão de um perfil de programador do sistema.|
+| RF011	| Visualizar Hora/Data | Permite a visualização da distribuição de horas pelos projetos e suas datas, e horas disponíveis de programadores da equipe.|
+| RNF012 | Visualizar Projetos | Permite a visualização de uma lista contendo todos os projetos em andamento.|
+
+
     
   
     
