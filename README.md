@@ -29,7 +29,7 @@ Criação de um software para planejamento de projetos, atividades e carga horar
 ## Problema:
 - Nosso cliente da Necto (Empresa desenvolvedora de software) nos contatou e explicou o problema que tinha em sua empresa.
 
-_Negrito_"Eu  tenho visão estrategica dos projetos, tarefas e horas trabalhadas pelos meus funcionario, porém eu gostaria de um software com mais funcionalidades do que o metodo que é utilizo atualmente."_Negrito_
+>**"Eu  tenho visão estrategica dos projetos, tarefas e horas trabalhadas pelos meus funcionario, porém eu gostaria de um software com mais funcionalidades do que o metodo que é utilizo atualmente."**
 
 Com isso, ele passou os requistos que ele gostaria que esse software tivesse para o P.O do time.
     
