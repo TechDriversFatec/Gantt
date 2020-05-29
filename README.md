@@ -1,6 +1,7 @@
 # Projeto Integrador - Gantt 
 
 Criação de um software para planejamento de projetos, atividades e carga horaria de programadores.
+### [Link para o trello](https://trello.com/b/fRWb5UFb/pi-2-semestre)
 
 ## Disciplinas:
 - Lab. Desevolvimento BD II - Profº Adriana da Silva
