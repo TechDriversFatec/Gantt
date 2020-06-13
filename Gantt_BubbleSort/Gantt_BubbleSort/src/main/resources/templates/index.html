@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<head>
+	<title>Necto - Gantt</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<!-- Bootstrap JS -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<!-- Icones Fontawesome -->
+	<script src="https://kit.fontawesome.com/83250a9515.js" crossorigin="anonymous"></script>
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/7.9.3/firebase.js"></script>
+	<!-- React -->
+	<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+	<!-- JSX -->
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+	
+	<style>
+		body, html {
+  			height: 100%;
+  			font-family: "Inconsolata", sans-serif;
+		}
+
+		.bgimg {
+		  background-position: center;
+		  background-size: cover;
+		  background-image:url("https://gitlab.com/gurst6/projeto-integrador-gantt/-/raw/master/Materiais/logo.PNG");
+		  min-height: 75%;
+		}
+
+		.menu {
+		  display: none;
+		}
+			
+	.modalDialog {
+		position: fixed;
+		font-family: Arial, Helvetica, sans-serif;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.8);
+		z-index: 99999;
+		opacity:0;
+		-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+		pointer-events: none;
+	}
+
+	.modalDialog:target {
+		opacity:1;
+		pointer-events: auto;
+	}
+
+	.modalDialog > div {
+		width: 400px;
+		position: relative;
+		margin: 10% auto;
+		padding: 5px 20px 13px 20px;
+		border-radius: 10px;
+		background: #fff;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+	}
+
+	.close {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: -12px;
+		text-align: center;
+		top: -10px;
+		width: 24px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+
+	.close:hover { background: #00d9ff; }
+	</style>
+</head>
+
+<body>
+<!-- Links de cima --> 
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="/ganttTasks" class="w3-button w3-block w3-black">Gantt</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="/programmer" class="w3-button w3-block w3-black">Programadores</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="/relatorio" class="w3-button w3-block w3-black">Relátorio</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="http://fatecsjc-prd.azurewebsites.net/" class="w3-button w3-block w3-black">FATEC</a>
+    </div>
+  </div>
+</div>
+
+<!-- Sobreposição da capa -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white">Bubble Sort Productions</span>
+  </div>
+</header>
+
+<!-- background cor -->
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- Conteúdo QUEM SOMOS -->
+<div class="w3-container" id="QUEM SOMOS">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Ver Projetos</span></h5>
+    </div>
+</div>
+	<a href="/ganttTasks"><center><img src="https://image.flaticon.com/icons/svg/31/31970.svg" style="width:100%;max-width:80px"></center></a>
+<div class="w3-container" id="QUEM SOMOS">
+  <div class="w3-content" style="max-width:700px">
+	<p align="center">Olá, Quer ver seus projetos? Clique em "Gantt" na barra superior!</p>
+  </div>
+</div>
+
+<br>
+<a href="#openModal">Open Modal</a>
+
+<div id="openModal" class="modalDialog">
+	<div>
+		<a href="#close" title="Close" class="close">X</a>
+		<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Novo Projeto</h5>
+						<span aria-hidden="true">&times;</span>
+					</div>
+					<div class="modal-body">
+						<form>
+						<div class="form-group">
+							<label for="gt-dev" class="col-form-label">Cliente:</label>
+							<input type="text" class="form-control" id="gt-dev">
+						</div>
+						
+						<div class="form-group">
+							<label for="gt-date" class="col-form-label">Data de Inicio:</label>
+							<input class="form-control" id="gt-date" type="date"></input>
+						</div>
+
+						<div class="form-group">
+							<label for="gt-date" class="col-form-label">Duração:</label>
+							<input class="form-control" id="gt-date" type="number" value="1"></input>
+						</div>
+		
+						<div class="form-group">
+							<label for="gt-text" class="col-form-label">Descrição:</label>
+							<textarea class="form-control" id="gt-text"></textarea>
+						</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+						<button type="button" class="btn btn-primary" onclick="criarElemento()" data-dismiss="modal">Salvar</button>
+					</div>
+		</div>
+	</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- Rodapé -->
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <p>Powered by Bubble Sort</p>
+  <p><center>Members: Gabriel Queiroz e Gustavo Ribeiro.<br> Master: Gabriel Queiroz </center></p>
+</footer>
+</body>
+</html>
