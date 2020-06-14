@@ -1,43 +1,44 @@
 # Projeto Integrador - Gantt 
 
 Criação de um software para planejamento de projetos, atividades e carga horaria de programadores.
+
+## Lista de Backlog:
+Acessando o link abaixo, você consegue acessar o Kanban com as nossas atividades e acompanhar o nosso desenvolvimento:
 ### [Link para o trello](https://trello.com/b/fRWb5UFb/pi-2-semestre)
 
 ## Disciplinas:
-- Lab. Desevolvimento BD II - Profº Adriana da Silva
+- Lab. Desenvolvimento BD II - Profº Adriana da Silva
 - Engenharia de Software - Profº Giuliano Bertoti
-- Fundamentos de Calculo - Profº Dercy Felix
-- Ingles II - Teresinha de Fatima
-- Planejamento Estrategico - Profº Valter Joao
+- Fundamentos de Cálculo - Profº Dercy Felix
+- Inglês II - Teresinha de Fatima
+- Planejamento Estratégico - Profº Valter Joao
 - Arquitetura e Modelagem de Banco de Dados - Profº Emanuel Mineda
-- Fundamentos de Gestao de Pessoas - Profº Valter Joao
-- Linguagem de Programacao - Profº Adriana da Silva
+- Fundamentos de Gestão de Pessoas - Profº Valter Joao
+- Linguagem de Programação - Profº Adriana da Silva
 
 ## Equipe de alunos:
 - Gustavo Ribeiro
 - Gabriel Queiroz
-- Carolina 
-- Eguimar
 
 # Resultados:
 - Aqui postaremos updates sobre o projeto, desenvolvimento, testes e etc.
 
-- Pode usar textos, imagens, gifs animadas (excelentes para mostrar o código rodando e etc!!!)
+- Pode usar textos, imagens, gifs animadas (excelentes para mostrar o código rodando).
 
 ## Introdução:
-- O objetivo do projeto é desenvolver uma software de visão estrategica de projetos e tarefas. Esse software terá alguns requisitos funcionais pré-estabelecidos pelo cliente que seram listados abaixo.
+- O objetivo do projeto é desenvolver um software de visão estratégica de projetos e tarefas. Esse software terá alguns requisitos funcionais pré-estabelecidos pelo cliente que serão listados abaixo.
 
 ## Problema:
 Nosso cliente da Necto (Empresa desenvolvedora de software) nos contatou e explicou o problema que tinha em sua empresa.
 
->**"Eu  tenho visão estrategica dos projetos, tarefas e horas trabalhadas pelos meus funcionario, porém eu gostaria de um software com mais funcionalidades do que o metodo que é utilizo atualmente."**
+>**"Eu  tenho visão estratégica dos projetos, tarefas e horas trabalhadas pelos meus funcionários, porém eu gostaria de um software com mais funcionalidades do que o método que é utilizo atualmente."**
 
 Com isso, foi definido o desenvolvimento de um software com base no diagrama de Gantt, como esse por exemplo:
 
 ![](/projeto-integrador-gantt/cronograma-artia.png)
 ![](https://gitlab.com/gurst6/projeto-integrador-gantt/-/blob/master/cronograma-artia.png)
 
-# Requisitos Indentificados:
+# Requisitos Identificados:
 
 ## Requisitos Funcionais:
 Os requisitos funcionais da aplicação são:
@@ -73,17 +74,17 @@ Os requisitos não-funcionais da aplicação são:
 | Ajuda e documentação | Documentação sobre o sistema no rodapé.|
 
 
-## Tecnologias e Metodos de trabalho sendo utilizadas:
+## Tecnologias e Métodos de trabalho sendo utilizadas:
 - Tecnologias:
     - Java
-        - DHT: Biblioteca para criação de graficos interativos
+        - DHT: Biblioteca para criação de gráficos interativos
         - Spring Web: Framework para criação de páginas web com Java
-    -SQL
+    -MYSQL
 
 
-- Metodos: 
+- Métodos: 
     - Scrum
-    - As 10 heuriticas de Nielsen
+    - As 10 heurísticas de Nielsen
 
     
     
