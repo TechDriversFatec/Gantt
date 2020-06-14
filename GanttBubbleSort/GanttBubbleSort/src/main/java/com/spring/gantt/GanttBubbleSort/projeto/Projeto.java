@@ -1,9 +1,8 @@
 package com.spring.gantt.GanttBubbleSort.projeto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.ArrayList;
+import javax.persistence.*;
+import com.spring.gantt.GanttBubbleSort.tarefa.Tarefa;
 
 @Entity
 public class Projeto {
@@ -12,6 +11,9 @@ public class Projeto {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int projetoID;
     private String projetoName;
+    
+    // @OneToMany
+    // private ArrayList<Tarefa> tarefas;
 
     public void setProjetoID(int id) {
         this.projetoID = id;
@@ -32,6 +34,10 @@ public class Projeto {
     public Projeto(int id, String name) {
         this.projetoID = id;
         this.projetoName = name;
+    }
+
+    public Projeto(int id) {
+        this.projetoID = id;
     }
 
     public Projeto() {}

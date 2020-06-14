@@ -32,8 +32,7 @@ public class ProjetoController {
         return projetoRepository.findAll();
     }
 
-    @RequestMapping("/teste")
-	public String index() {
-		return "index";
-	}
+    // @RequestMapping("/teste")
+		// return "index";
+	
 }
