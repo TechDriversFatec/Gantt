@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js"></script>
+	<link href="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.css" rel="stylesheet">
+	<script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>
+	<title>Necto - Gantt</title>
+	<style>
+			body, html {
+			  height: 100%;
+			  font-family: "Inconsolata", sans-serif;
+			}
+			
+			.bgimg {
+			  background-position: center;
+			  background-size: cover;
+			  background-image:url("/home/daniele/Desktop/tentativa/frontito/fotiras/capa.jpg");
+			  min-height: 75%;
+			}
+			
+			.menu {
+			  display: none;
+			}
+		.chart-wrap, * { font-family: "Inconsolata", sans-serif; }
+		
+				 .chart-wrap {
+				    background: #f3f3f6;
+				  padding: 20px;
+				/* height: 100%; */
+				}
+				  
+				  
+				  .gantt_task_link {
+				    opacity: .2; }
+				  
+				  
+				  .gantt_scale_cell, .gantt_task_cell {
+				    border-right: 1px solid #F3F3F6; }
+				  
+				  .gantt_grid_data .gantt_row, .gantt_grid_data .gantt_row.odd {
+				  	transition: .3s all ease-in-out;   }
+				  
+				  .gantt_task_line {
+				  	background: #7Fbeeb;
+				    border: 0px solid blue;  	}
+				  
+				  .gantt_task_content {
+				    text-align: left !important; 
+				    font-weight: bold; }
+				  .gantt_grid .gantt_grid_scale .gantt_grid_head_cell {
+				    text-transform: none;
+					  font-weight: 800;
+					  color: #C9CAD5;
+				  font-size: 18px;}
+				  
+				  .gantt_cell[data-column-name="text"] { /* Prokect Title */
+				    font-weight: bold;
+				    font-size: 18px;
+				  	color: #2E2C56}
+				  
+				  .gantt_row div:nth-child(4) { /* Subtask Title */
+				    font-weight: 600;
+				    font-size: 16px;
+				  	color: #474469}
+				  
+				 .gantt_task .gantt_task_scale .gantt_scale_cell {
+				   text-transform: none; } 
+				  .gantt_grid_data .gantt_row.gantt_selected, .gantt_grid_data .gantt_row.odd.gantt_selected, .gantt_task_row.gantt_selected {
+				    background: azure; }
+				  .gantt_task_row.gantt_selected .gantt_task_cell {
+				    border-right-color: rgba(145,210,210,.2); }
+				  .gantt_grid_data .gantt_row:hover {
+				    background-color: rgba(0,199,181,.1); }
+				  .gantt_tree_icon.gantt_close {
+				    width: 20px;
+				    cursor: pointer;
+				    padding-right: 5px; 
+				    opacity: .5; }
+				  div.gantt_grid_scale:after, div.gantt_scale_line:last-child:after {
+				    box-shadow: none; }
+				  .subtitle {
+				    color: #999;
+				    margin:0px 0px -10px 0px;
+				    font-weight: 400;
+				    font-size: 14px;
+				  }
+				
+				.badge.badge-danger {
+				  background: red;
+				  color: white;
+				}
+	</style>
+</head>  
+<body> 
+	<!-- Links de cima --> 
+	<div class="w3-top">
+	  <div class="w3-row w3-padding w3-black">
+	    <div class="w3-col s3">
+	      <a href="/" class="w3-button w3-block w3-black">HOME</a>
+	    </div>
+	    <div class="w3-col s3">
+	      <a href="/ganttTasks" class="w3-button w3-block w3-black">GANTT</a>
+	    </div>
+	    <div class="w3-col s3">
+	      <a href="/report" class="w3-button w3-block w3-black">REPORT</a>
+	    </div>
+	    <div class="w3-col s3">
+	      <a href="https://gitlab.com/gurst6/projeto-integrador-gantt" class="w3-button w3-block w3-black">GIT</a>
+	    </div>
+	  </div>
+	</div>
+	<script>
+	gantt.config.columns = [ {
+		name : "text",
+		label : "Title",
+		tree : true,
+		width : '*',
+		template : RowTitle
+	},
+
+	{
+		name : "status",
+		label : "Status",
+		align : "center",
+		hide : true
+	}];
+	
+	var RowTitle = function(obj) {
+		return ('<h3 style=\"line-height:14px;color:#0b0839;margin:5px 0px -10px 0px;\">Title</h3><p class=\"subtitle\">small subtitle</p>');
+	}
+		
+
+			gantt.config.row_height = 50
+
+	gantt.config.scroll_size = 20;
+
+	gantt.config.scale_unit = "month";
+	gantt.config.step = 1;
+	gantt.config.date_scale = "%F, %Y";
+	gantt.config.min_column_width = 50;
+
+	gantt.config.scale_height = 90;
+
+	var weekScaleTemplate = function(date) {
+		var dateToStr = gantt.date.date_to_str("%d %M");
+		var endDate = gantt.date.add(gantt.date.add(date, 1, "week"), -1, "day");
+		return dateToStr(date) + " - " + dateToStr(endDate);
+	};
+
+	var daysStyle = function(date) {
+		var dateToStr = gantt.date.date_to_str("%D");
+		if (dateToStr(date) == "Sun" || dateToStr(date) == "Sat")
+			return "weekend";
+
+		return "";
+	};
+
+	gantt.config.subscales = [ {
+		unit : "week",
+		step : 1,
+		template : weekScaleTemplate
+	}, {
+		unit : "day",
+		step : 1,
+		date : "%D",
+		css : daysStyle
+	} ];
+
+	var data = {
+		"data" : [ {
+			"id" : "[[${proj1.id}]]",
+			"text" : "[[${proj1.text}]]",
+			"start_date" : "[[${proj1.start_date}]]",
+			"status" : "On Track",
+			"order" : 10,
+			"progress" : "[[${proj1.progress}]]",
+			"type" : "[[${proj1.type}]]",
+			"open" : true
+		}, {
+			"id" : "[[${task1.id}]]",
+			"text" : "[[${task1.text}]]",
+			"start_date" : "[[${task1.start_date}]]",
+			"end_date" : "[[${task1.end_date}]]",
+			"status" : "On Track",
+			"order" : 10,
+			"progress" : 0,
+			"parent" : "[[${task1.parent}]]"
+		}, {
+			"id" : "[[${task2.id}]]",
+			"text" : "[[${task2.text}]]",
+			"start_date" : "[[${task2.start_date}]]",
+			"end_date" : "[[${task2.end_date}]]",
+			"status" : "On Track",
+			"order" : 10,
+			"progress" : 0,
+			"parent" : "[[${task2.parent}]]"
+		}, {
+			"id" : "[[${proj2.id}]]",
+			"text" : "[[${proj2.text}]]",
+			"start_date" : "[[${proj2.start_date}]]",
+			"status" : "On Track",
+			"order" : 10,
+			"progress" : "[[${proj2.progress}]]",
+			"type" : "[[${proj2.type}]]",
+			"open" : true
+		}, {
+			"id" : "[[${task3.id}]]",
+			"text" : "[[${task3.text}]]",
+			"start_date" : "[[${task3.start_date}]]",
+			"end_date" : "[[${task3.end_date}]]",
+			"status" : "On Track",
+			"order" : 10,
+			"progress" : 0,
+			"parent" : "[[${task3.parent}]]"
+		}, {
+			"id" : "[[${task4.id}]]",
+			"text" : "[[${task4.text}]]",
+			"start_date" : "[[${task4.start_date}]]",
+			"end_date" : "[[${task4.end_date}]]",
+			"status" : "On Track",
+			"order" : 10,
+			"progress" : 0,
+			"parent" : "[[${task4.parent}]]"
+		}, ],
+		"links" : [
+		  { "id":1, "source":1, "target":2, "type":"0"},
+		  { "id":3, "source":3, "target":4, "type":"0"},
+		]
+	};
+
+	gantt.init("gantt_here");
+	gantt.parse(data);
+
+
+	$('div').click(function() {
+		console.log("It worked");	
+	});
+	</script>
+	<div id="gantt_here" style="max-width:500px; max-height:500px"></div>
+	
+	<!-- Rodapé -->
+	<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+	  <p>Powered by Gang of Five</p>
+	  <p><center>Members: Daniele Santos, Gabriel Queiroz, Gustavo Ribeiro e Rodolfo de Jesus.<br> Master: Robson Silva </center></p>
+	</footer>
+</body>
+</html>
