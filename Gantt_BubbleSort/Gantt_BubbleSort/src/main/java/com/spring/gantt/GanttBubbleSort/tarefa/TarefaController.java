@@ -1,5 +1,7 @@
 package com.spring.gantt.GanttBubbleSort.tarefa;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class TarefaController {
     
     @Autowired
-
     private TarefaRepository tarefaRepository;
 
     @PostMapping(path="/addTarefa") 
@@ -34,7 +35,19 @@ public class TarefaController {
     }
 
     @GetMapping(path="/getProjetoTarefas")
-    public @ResponseBody Iterable<Tarefa> getProjetoTarefas(@RequestParam int idProjeto) {
-        return tarefaRepository.findByProjetoProjetoID(idProjeto);
+    public @ResponseBody ArrayList<Tarefa> getProjetoTarefas(@RequestParam int idProjeto) {
+        return tarefaRepository.findByProjeto_id(idProjeto);
     }
+
+    public ArrayList<Tarefa> getTarefas(int idProjeto) {
+        ArrayList<Tarefa> tarefas = new ArrayList<Tarefa>();
+        tarefaRepository.findAll()
+        .forEach(tarefas::add);
+        return tarefas;
+        // return tarefaRepository.findByProjeto_id(idProjeto);
+    }
+
+    // public Iterable<Tarefa> inProjetoTarefas(@RequestParam int idProjeto) {
+    //     return tarefaRepository.findByProjetoProjetoID(idProjeto);
+    // }
 }

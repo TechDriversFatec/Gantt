@@ -21,7 +21,7 @@ public class ProjetoController {
       // @RequestParam means it is a parameter from the GET or POST request
   
       Projeto pr = new Projeto();
-      pr.setProjetoName(name);
+      pr.setName(name);
       projetoRepository.save(pr);
       return "Saved";
     }
