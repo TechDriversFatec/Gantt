@@ -9,6 +9,15 @@ public class Tasks {
 	private int progress;
 	private int parent;
 	
+	public Tasks(String text, String start_date, String end_date, int progress, int parent) {
+		super();
+		this.text = text;
+		this.start_date = start_date;
+		this.end_date = end_date;
+		this.progress = progress;
+		this.parent = parent;
+	}
+
 	public Tasks(int id, String text, String start_date, String end_date, int progress, int parent) {
 		super();
 		this.id = id;

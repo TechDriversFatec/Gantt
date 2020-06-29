@@ -1,8 +1,11 @@
 package com.spring.gantt.GanttBubbleSort.projeto;
 
+import java.util.ArrayList;
+
 import org.springframework.data.repository.CrudRepository;
-import com.spring.gantt.GanttBubbleSort.projeto.Projeto;
 
 public interface ProjetoRepository extends CrudRepository<Projeto, Integer>{
+
+    ArrayList<Projeto> findAll();
 
 }

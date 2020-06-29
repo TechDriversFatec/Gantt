@@ -1,6 +1,6 @@
 package com.spring.gantt.GanttBubbleSort.tarefa;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,32 +19,30 @@ public class TarefaController {
     private TarefaRepository tarefaRepository;
 
     @PostMapping(path="/addTarefa") 
-    public @ResponseBody String addNewUser (@RequestParam String desc,
-                                            @RequestParam int duracao,
-                                            @RequestParam int idProjeto) {
+    public @ResponseBody String addNewUser (@RequestParam String text,
+                                            @RequestParam String start_date,
+                                            @RequestParam String end_date,
+                                            @RequestParam int progress,
+                                            @RequestParam int parent) {
 
-      Tarefa ta = new Tarefa(desc, duracao, idProjeto);
+      Tarefa ta = new Tarefa(text, start_date, end_date, progress, parent);
 
       tarefaRepository.save(ta);
       return "Tarefa inserida";
     }
 
     @GetMapping(path="/getTarefas")
-    public @ResponseBody Iterable<Tarefa> getAllTarefas() {
+    public @ResponseBody List<Tarefa> getAllTarefas() {
         return tarefaRepository.findAll();
     }
 
     @GetMapping(path="/getProjetoTarefas")
-    public @ResponseBody ArrayList<Tarefa> getProjetoTarefas(@RequestParam int idProjeto) {
-        return tarefaRepository.findByProjeto_id(idProjeto);
+    public @ResponseBody List<Tarefa> getProjetoTarefas(@RequestParam int id) {
+        return tarefaRepository.findByParent(id);
     }
 
-    public ArrayList<Tarefa> getTarefas(int idProjeto) {
-        ArrayList<Tarefa> tarefas = new ArrayList<Tarefa>();
-        tarefaRepository.findAll()
-        .forEach(tarefas::add);
-        return tarefas;
-        // return tarefaRepository.findByProjeto_id(idProjeto);
+    public List<Tarefa> getTarefas(int id) {
+        return tarefaRepository.findByParent(id);
     }
 
     // public Iterable<Tarefa> inProjetoTarefas(@RequestParam int idProjeto) {
