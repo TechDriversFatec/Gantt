@@ -19,15 +19,20 @@ public class TarefaController {
     private TarefaRepository tarefaRepository;
 
     @PostMapping(path="/addTarefa") 
-    public @ResponseBody String addNewUser (@RequestParam String text,
+    public @ResponseBody String addNewTask (@RequestParam int id,
+                                            @RequestParam String text,
                                             @RequestParam String start_date,
                                             @RequestParam String end_date,
                                             @RequestParam int progress,
-                                            @RequestParam int parent) {
+                                            @RequestParam int parent,
+                                            @RequestParam int duration,
+                                            @RequestParam String priority,
+                                            @RequestParam String type,
+                                            @RequestParam String render) {
+		
+      Tarefa novaTarefa = new Tarefa(id,text,start_date,end_date,progress,parent,duration,priority,type,render);
 
-      Tarefa ta = new Tarefa(text, start_date, end_date, progress, parent);
-
-      tarefaRepository.save(ta);
+      tarefaRepository.save(novaTarefa);
       return "Tarefa inserida";
     }
 
@@ -45,7 +50,4 @@ public class TarefaController {
         return tarefaRepository.findByParent(id);
     }
 
-    // public Iterable<Tarefa> inProjetoTarefas(@RequestParam int idProjeto) {
-    //     return tarefaRepository.findByProjetoProjetoID(idProjeto);
-    // }
 }

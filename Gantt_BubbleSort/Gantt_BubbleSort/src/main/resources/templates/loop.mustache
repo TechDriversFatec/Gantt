@@ -189,6 +189,8 @@
 			.btn:hover {
 			  background-color: #000000;
 			}
+
+			.weekend{ background: #f4f7f4 !important;}
 	</style>
   </head>
   <body>
@@ -212,17 +214,94 @@
 		<br>
 		<br>
 		<br>
+
+		<button id="save" style="margin-left: 15px" class="btn"><i class="fa fa-folder"></i> SAVE</button>
+		<br>
+		<br>
+		<div id="gantt_here" style="width: 100%; height: 100%;"></div>
+
 		<script>
 			$(document).ready(function(){
+
+			gantt.config.work_time = true;
+			
+			gantt.templates.scale_cell_class = function(date){
+				if(!gantt.isWorkTime(date)){
+					return "weekend";
+				}
+			};
+			gantt.templates.timeline_cell_class = function(task,date){
+				if(!gantt.isWorkTime({task:task, date:date})){
+					return "weekend" ;
+				}
+			};
+	
+
+				/*var formatter = gantt.ext.formatters.durationFormatter({
+									enter: "day", 
+									store: "minute", // duration_unit
+									format: "day",
+									hoursPerDay: 8,
+									hoursPerWeek: 40,
+									daysPerMonth: 30
+								});*/
+
+				var formatter = gantt.ext.formatters.durationFormatter({
+									enter: "hour", 
+									store: "hour", // duration_unit
+									format: "hour"
+								});
 				
+				gantt.config.lightbox.sections = [
+					{name: "type", type: "typeselect", map_to: "type"},
+					{name:"priority", height:22, map_to:"priority", type:"select", options: [ 
+						{key:1, label: "High"},                                               
+						{key:2, label: "Normal"},                                             
+						{key:3, label: "Low"}                                                 
+					]},
+					{name:"description", height:38, map_to:"text", type:"textarea", focus:true},
+					{name: "time", type: "duration", map_to: "auto", formatter: formatter},
+					{name: "split", type:"checkbox", map_to: "render", options:[
+						{key:"split", label:"Split Task"}
+					]}
+				];				
+
+				gantt.config.lightbox.project_sections = [
+					{name: "type", type: "typeselect", map_to: "type"},
+					{name:"priority", height:22, map_to:"priority", type:"select", options: [ 
+						{key:1, label: "High"},                                               
+						{key:2, label: "Normal"},                                             
+						{key:3, label: "Low"}                                                 
+					]},
+					{name:"description", height:38, map_to:"text", type:"textarea", focus:true},
+					{name: "split", type:"checkbox", map_to: "render", options:[
+						{key:"split", label:"Split Task"}
+					]}
+				];	
+
+				gantt.config.lightbox.milestone_sections = [
+					{name: "type", type: "typeselect", map_to: "type"},
+					{name:"description", height:38, map_to:"text", type:"textarea", focus:true},
+					{name: "split", type:"checkbox", map_to: "render", options:[
+						{key:"split", label:"Split Task"}
+					]}
+				];	
+
+				
+				gantt.config.work_time = true;  // removes non-working time from calculations 
+				//gantt.config.skip_off_time = true;
+				gantt.config.duration_unit = "hour";
+				//gantt.config.show_tasks_outside_timescale = true;
+
+				gantt.config.drag_project = true;
+
 				gantt.config.columns = [ {
 					name : "text",
-					label : "Title",
+					label : "Projetos",
 					tree : true,
 					width : '*',
 					template : RowTitle
 				},
-			
 				{
 					name : "status",
 					label : "Status",
@@ -239,14 +318,13 @@
 
 				gantt.config.row_height = 50
 			
-				gantt.config.scroll_size = 20;
+				//gantt.config.scroll_size = 20;
 			
 				gantt.config.scale_unit = "month";
-				gantt.config.step = 1;
-				gantt.config.date_scale = "%F, %Y";
+				gantt.config.date_scale = "%Y";
 				gantt.config.min_column_width = 50;
 			
-				gantt.config.scale_height = 90;
+				gantt.config.scale_height = 70;
 			
 				var weekScaleTemplate = function(date) {
 					var dateToStr = gantt.date.date_to_str("%d %M");
@@ -262,22 +340,16 @@
 					return "";
 				};
 			
-				gantt.config.subscales = [ {
-					unit : "week",
-					step : 1,
-					date : "%w",
-					template : weekScaleTemplate
-				}, {
+				gantt.config.subscales = [  {
 					unit : "day",
 					step : 1,
-					date : "%d",
+					date : "Dia %d - %M",
 					css : daysStyle
 				}, {
 					unit : "hour",
 					step : 1,
-					date : "%H"
+					date : "%Hh"
 				} ];
-							
 				
 				var data = {
 					"data" : [ 
@@ -285,11 +357,11 @@
 						{
 							"id" : "[[{{id}}]]",
 							"text" : "{{text}}",
-							"start_date" : "[[{{start_date}}]]",
+							"start_date" : "{{start_date}}",
 							"status" : "On Track",
 							"order" : 10,
-							"progress" : "[[{{progress}}]]",
-							"type" : "[[{{type}}]]",
+							"progress" : "{{progress}}",
+							"type" : "{{type}}",
 							"open" : true
 						},
 						{{/projetos}}
@@ -312,116 +384,105 @@
 					]
 				};
 					
+				//gantt.i18n.setLocale("pt");
+
+				gantt.i18n.setLocale({
+					date: {
+						month_full: ["January", "February", "March", "April", "May", "June", 
+							"July", "August", "September", "October", "November", "December"],
+						month_short: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", 
+							"Aug", "Sep", "Oct", "Nov", "Dec"],
+						day_full: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+							"Friday", "Saturday"],
+						day_short: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+					},
+					labels: {
+						new_task: "Nova tarefa",
+						icon_save: "Salvar",
+						icon_cancel: "Cancelar",
+						icon_details: "Detalhes",
+						icon_edit: "Editar",
+						icon_delete: "Deletar",
+						gantt_save_btn: "New Label",
+						gantt_cancel_btn: "New Label",
+						gantt_delete_btn: "New Label",
+						confirm_closing: "",// Your changes will be lost, are you sure?
+						confirm_deleting: "A tarefa será excluída permanentemente. Confirmar exclusão?",
+						section_description: "Descrição",
+						section_time: "Período de tempo",
+						section_type: "Tipo",
+				
+						/* grid columns */
+						column_wbs: "WBS",
+						column_text: "Task name",
+						column_start_date: "Start time",
+						column_duration: "Duration",
+						column_add: "",
+				
+						/* link confirmation */
+						link: "Link",
+						confirm_link_deleting: "will be deleted",
+						link_start: " (start)",
+						link_end: " (end)",
+				
+						type_task: "Task",
+						type_project: "Project",
+						type_milestone: "Milestone",
+				
+						minutes: "Minutes",
+						hours: "Hours",
+						days: "Days",
+						weeks: "Week",
+						months: "Months",
+						years: "Years",
+				
+						/* message popup */
+						message_ok: "OK",
+						message_cancel: "Cancel",
+				
+						/* constraints */
+						section_constraint: "Constraint",
+						constraint_type: "Constraint type",
+						constraint_date: "Constraint date",
+						asap: "As Soon As Possible",
+						alap: "As Late As Possible",
+						snet: "Start No Earlier Than",
+						snlt: "Start No Later Than",
+						fnet: "Finish No Earlier Than",
+						fnlt: "Finish No Later Than",
+						mso: "Must Start On",
+						mfo: "Must Finish On",
+				
+						/* resource control */
+						resources_filter_placeholder: "type to filter",
+						resources_filter_label: "hide empty"
+					}
+				});
+
 				gantt.init("gantt_here");
-			
+				
 				gantt.parse(data);				    
 
-				$("#save").click(function(event) {
+				$("#save").click(function() {
 					
 				// PREPARE FORM DATA
-
+					var sendData = JSON.stringify(gantt.serialize());
 					
-					var formData = JSON.stringify(gantt.serialize());
-					alert(formData);
 					// DO POST
-					$.post("/salvar", JSON.stringify({"formData" : formData}), function(data){
-						
-						alert(formData);
-									
-					}, "json");
+					jQuery.ajax ({
+						url: "/salvar",
+						type: "POST",
+						data: sendData,
+						dataType: "json",
+						contentType: "application/json; charset=utf-8",
+						success: function(){
+							
+							
+						}
+					});
 				});
 			});
 		</script>
-		<div id="newProj" class="modalDialog">
-			<div>
-				<a href="#close" title="Close" class="close">X</a>
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Novo Projeto</h5>
-						<span aria-hidden="true">&times;</span>
-					</div>
-					<div class="modal-body">
-						<form>
-						<div class="form-group">
-							<label for="gt-dev" class="col-form-label">Cliente:</label>
-							<input type="text" class="form-control" id="gt-dev">
-						</div>
-						
-						<div class="form-group">
-							<label for="gt-date" class="col-form-label">Data de Inicio:</label>
-							<input class="form-control" id="gt-date" type="date"></input>
-						</div>
-		
-						<div class="form-group">
-							<label for="gt-text" class="col-form-label">Descrição:</label>
-							<textarea class="form-control" id="gt-text"></textarea>
-						</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-						<button type="button" class="btn btn-primary" onclick="criarElemento()" data-dismiss="modal">Salvar</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div id="newTask" class="modalDialog">
-			<div>
-				<a href="#close" title="Close" class="close">X</a>
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Nova Atividade</h5>
-						<span aria-hidden="true">&times;</span>
-					</div>
-					<div class="modal-body">
-						<form>
-						<div class="form-group">
-							<label for="gt-dev" class="col-form-label">Nome:</label>
-							<input type="text" class="form-control" id="gt-dev">
-						</div>
-						
-						<div class="form-group">
-							<label for="gt-date" class="col-form-label">Data de Inicio:</label>
-							<input class="form-control" id="gt-date" type="date"></input>
-						</div>
-						
-						<div class="form-group">
-							<label for="gt-date" class="col-form-label">Data de Final
-							:</label>
-							<input class="form-control" id="gt-date" type="date"></input>
-						</div>
-		
-						<div class="form-group">
-							<label for="gt-text" class="col-form-label">Descrição:</label>
-							<textarea class="form-control" id="gt-text"></textarea>
-						</div>
-						
-						<div class="form-group">
-							<label for="gt-dev" class="col-form-label">Projeto Mãe:</label>
-							<input type="text" class="form-control" id="gt-dev">
-						</div>
-						
-						<div class="form-group">
-							<label for="gt-dev" class="col-form-label">Desenvolvedor(es):</label>
-							<input type="text" class="form-control" id="gt-dev">
-						</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-						<button type="button" class="btn btn-primary" onclick="criarElemento()" data-dismiss="modal">Salvar</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<br>
-		<div id="postResultDiv" align="center"></div>
-		
-		<button type="submit" id="save" style="margin-left: 15px" class="btn"><i class="fa fa-folder"></i> SAVE</button>
-		<br>
-		<br>
-		<div id="gantt_here" style="width: 100%; height: 100%;"></div>
 		
 		<!-- Rodapé -->
 		<footer class="w3-center w3-light-grey w3-padding-48 w3-large">

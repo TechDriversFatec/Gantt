@@ -18,19 +18,18 @@ public class ProjetoController {
     private ProjetoRepository projetoRepository;
 
     @PostMapping(path="/addProjeto") // Map ONLY POST Requests
-    public @ResponseBody String addProjeto (@RequestParam String text,
+    public @ResponseBody String addProjeto (@RequestParam int id,
+                                            @RequestParam String text,
                                             @RequestParam String start_date,
                                             @RequestParam String end_date,
                                             @RequestParam int progress,
+                                            @RequestParam int parent,
+                                            @RequestParam int duration,
+                                            @RequestParam String priority,
                                             @RequestParam String type) {
-  
-      Projeto projeto = new Projeto(text, start_date, progress, type);
-      projetoRepository.save(projeto);
-      return "Saved";
-    }
 
-    public String addTestString (String text) {
-      Projeto projeto = new Projeto(text);
+      Projeto projeto = new Projeto(id,text,start_date,end_date,progress,parent,duration,priority,type);
+      
       projetoRepository.save(projeto);
       return "Saved";
     }
