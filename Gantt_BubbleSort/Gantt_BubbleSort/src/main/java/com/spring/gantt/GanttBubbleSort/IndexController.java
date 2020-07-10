@@ -20,9 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.ui.Model;
 
-@Controller
+@RestController
 public class IndexController {
 
 	@Autowired
@@ -30,36 +31,13 @@ public class IndexController {
 
 	@Autowired
 	ProjetoController pc = new ProjetoController();
-
-	@RequestMapping("/")
-	public String index() {
-		return "index";
-	}
-
-	@RequestMapping("/ganttTasks")
-	public String ganttTasks(@RequestParam(name = "name", required = false, defaultValue = "World") final String name,
-			final Model model) {
-
-		final ArrayList<Tarefa> tarefas = new ArrayList<>();
-		final ArrayList<Projeto> projetos = new ArrayList<>();
-
-		// tc.getAllTarefas();
-		tarefas.addAll(tc.getAllTarefas());
-		projetos.addAll(pc.getAllProjetos());
-
-		model.addAttribute("tarefas", tarefas);
-		model.addAttribute("projetos", projetos);
-
-		// return "ganttTasks";
-		return "loop";
-	}
-
+	
 	@PostMapping(value = "/salvar")
 	public ResponseEntity<Object> salvar(@RequestBody final String formData) throws IOException {
 		
 		final JSONObject obj = new JSONObject(formData);
 
-		Files.write(Paths.get("C:/temp/test.txt"), obj.toString().getBytes(), StandardOpenOption.APPEND);
+		//Files.write(Paths.get("C:/temp/test.txt"), obj.toString().getBytes(), StandardOpenOption.APPEND);
 		// JSONArray arr = obj.getJSONArray("posts");
 		for (int i = 0; i < obj.getJSONArray("data").length(); i++) {
 			if (obj.getJSONArray("data").getJSONObject(i).getString("type").equals("project")) {

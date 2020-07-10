@@ -5,21 +5,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-	<link href="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.css" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js"></script>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>	
-	<script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>
 	<script src="https://export.dhtmlx.com/gantt/api.js?v=20180322"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
-	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js?v=5.2.4" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.js?v=5.2.4"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:regular,medium,thin,bold">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css?v=5.2.4">
+	<script src="https://docs.dhtmlx.com/gantt/codebase/dhtmlxgantt.js?v=6.0.0"></script>
+	<link rel="stylesheet" href="https://docs.dhtmlx.com/gantt/codebase/dhtmlxgantt.css?v=6.0.0">
+	
 	
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -252,6 +252,29 @@
 									format: "hour"
 								});
 				
+				gantt.config.columns = [ {
+					name : "text",
+					label : "Projetos",
+					tree : true,
+					width : '*',
+					template : RowTitle
+				}, {
+					name: "resources", label: "Resources",
+					template: function (item) {
+						if (!item.usage) return "";
+						return helper.getArrayForTemplate(item.usage, usageMap).join("; ");
+					}
+				}, {
+				 	name : "add"
+				}];
+				
+				
+				var userMap = [  
+					      { key: 1, label: "Gabriel", unit: "hours" },    
+					      { key: 2, label: "Gustavo", unit: "hours" },   
+					      { key: 3, label: "Cadu", unit: "hours" }   
+					    ]
+				
 				gantt.config.lightbox.sections = [
 					{name: "type", type: "typeselect", map_to: "type"},
 					{name:"priority", height:22, map_to:"priority", type:"select", options: [ 
@@ -260,11 +283,14 @@
 						{key:3, label: "Low"}                                                 
 					]},
 					{name:"description", height:38, map_to:"text", type:"textarea", focus:true},
-					{name: "time", type: "duration", map_to: "auto", formatter: formatter},
+        			{ name:"Programadores: ",type:"resources",map_to:"owner_id", options: userMap}, 
+        			{name: "time", type: "duration", map_to: "auto", formatter: formatter},
 					{name: "split", type:"checkbox", map_to: "render", options:[
 						{key:"split", label:"Split Task"}
 					]}
 				];				
+
+				gantt.locale.labels.section_rooms = "Rooms";
 
 				gantt.config.lightbox.project_sections = [
 					{name: "type", type: "typeselect", map_to: "type"},
@@ -294,22 +320,6 @@
 				//gantt.config.show_tasks_outside_timescale = true;
 
 				gantt.config.drag_project = true;
-
-				gantt.config.columns = [ {
-					name : "text",
-					label : "Projetos",
-					tree : true,
-					width : '*',
-					template : RowTitle
-				},
-				{
-					name : "status",
-					label : "Status",
-					align : "center",
-					hide : true
-				}, {
-					name : "add"
-				}];
 				
 				var RowTitle = function(obj) {
 					return ('<h3 style=\"line-height:14px;color:#0b0839;margin:5px 0px -10px 0px;\">Title</h3><p class=\"subtitle\">small subtitle</p>');
@@ -355,7 +365,7 @@
 					"data" : [ 
 						{{#projetos}}
 						{
-							"id" : "[[{{id}}]]",
+							"id" : "{{id}}",
 							"text" : "{{text}}",
 							"start_date" : "{{start_date}}",
 							"status" : "On Track",
@@ -466,17 +476,17 @@
 				$("#save").click(function() {
 					
 				// PREPARE FORM DATA
-					var sendData = JSON.stringify(gantt.serialize());
+					var formData = JSON.stringify(gantt.serialize());
 					
 					// DO POST
 					jQuery.ajax ({
 						url: "/salvar",
 						type: "POST",
-						data: sendData,
+						data: formData,
 						dataType: "json",
 						contentType: "application/json; charset=utf-8",
 						success: function(){
-							
+							alert("Success!")
 							
 						}
 					});
