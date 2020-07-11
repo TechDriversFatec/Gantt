@@ -18,7 +18,7 @@ Acessando o link abaixo, você consegue acessar o Kanban com as nossas atividade
 
 ## Equipe de alunos:
 - Gustavo Ribeiro dos Santos
-    - [Linkedin](www.linkedin.com/in/gustavo-ribeiro-dos-santos-0bbb08123)   
+    - [Link para o trello](https://www.linkedin.com/in/gustavo-ribeiro-dos-santos-0bbb08123/)  
 - Gabriel Queiroz
 
 # Resultados:
