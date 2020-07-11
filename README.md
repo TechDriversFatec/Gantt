@@ -17,7 +17,8 @@ Acessando o link abaixo, você consegue acessar o Kanban com as nossas atividade
 - Linguagem de Programação - Profº Adriana da Silva
 
 ## Equipe de alunos:
-- Gustavo Ribeiro
+- Gustavo Ribeiro dos Santos
+    - [Linkedin](www.linkedin.com/in/gustavo-ribeiro-dos-santos-0bbb08123)   
 - Gabriel Queiroz
 
 # Resultados:
