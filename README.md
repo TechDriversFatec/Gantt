@@ -31,12 +31,8 @@ Acessando o link abaixo, você consegue acessar o Kanban com as nossas atividade
 ## Problema:
 Nosso cliente da Necto (Empresa desenvolvedora de software) nos contatou e explicou o problema que tinha em sua empresa.
 
->**"Eu  tenho visão estratégica dos projetos, tarefas e horas trabalhadas pelos meus funcionários, porém eu gostaria de um software com mais funcionalidades do que o método que é utilizo atualmente."**
+>**"Eu tenho visão estratégica dos projetos, tarefas e horas trabalhadas pelos meus funcionários, porém eu gostaria de um software com mais funcionalidades do que o método que é utilizo atualmente."**
 
-Com isso, foi definido o desenvolvimento de um software com base no diagrama de Gantt, como esse por exemplo:
-
-![](/projeto-integrador-gantt/cronograma-artia.png)
-![](https://gitlab.com/gurst6/projeto-integrador-gantt/-/blob/master/cronograma-artia.png)
 
 # Requisitos Identificados:
 
@@ -45,8 +41,6 @@ Os requisitos funcionais da aplicação são:
 
 |Identificador|Nome|Descrição|
 |----|--|----------|
-| RF001 | Logar | Sistema de autenticação do usuário ou administrador.|
-| RF002 | Deslogar | Permite deslogar um perfil da página do sistema.|
 | RF003 | Criar Projeto | Permite a criação de novos projetos.|
 | RF004 | Editar Projeto | Permite a edição de projetos já existentes.|
 | RF005	| Excluir Projeto | Permite a exclusão de um projeto.|
@@ -64,12 +58,12 @@ Os requisitos não-funcionais da aplicação são:
 
 |Nome|Descrição| 
 |--|----------|
-| Visibilidade do Status do Sistema | Ao logar o usuário é direcionado a uma página contendo um menu lateral com as opções de visualização de projetos, atividades, equipe e no caso do administrador a possibilidade também de criar, editar e excluir.|
-| Compatibilidade entre o Sistema e o Mundo Real | A interface do sistema possui símbolos utilizados para facilitar a navegação.|
+| Visibilidade do Status do Sistema | Ao acessar a aplicação o usuário é direcionado a uma página contendo um menu com as opções de visualização de projetos, atividades, equipe.|
+| Compatibilidade entre o Sistema e o Mundo Real | A interface do sistema possui indicadores utilizados para facilitar a navegação.|
 | Controle e Liberdade para o Usuário | O sistema tem a possibilidade de navegar pelas informações e se necessário abri-las em uma nova página.|
 | Consistência e Padronização | Layout padronizado em relação aos gráficos e cores.|
 | Prevenção de erros | Para criação, edição e exclusão são usados pop-ups de confirmação.|
-| Estética e Design Minimalista | É usado um menu lateral para manter a organização das páginas e suas informações.|
+| Estética e Design Minimalista | É usado um menu superior para manter a organização das páginas e suas informações.|
 | Reconhecimento, Diagnostico e Recuperação de Erros | Ao criar e editar possui avisos de formulários nos campos que não foram preenchidos corretamente.|
 | Ajuda e documentação | Documentação sobre o sistema no rodapé.|
 
@@ -77,9 +71,12 @@ Os requisitos não-funcionais da aplicação são:
 ## Tecnologias e Métodos de trabalho sendo utilizadas:
 - Tecnologias:
     - Java
-        - DHT: Biblioteca para criação de gráficos interativos
+        - DHTMLX: Biblioteca para criação de gráficos interativos
         - Spring Web: Framework para criação de páginas web com Java
-    -MYSQL
+    - HTML
+    - Java Script
+    - MYSQL
+    - Hibernate
 
 
 - Métodos: 
