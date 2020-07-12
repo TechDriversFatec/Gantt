@@ -456,8 +456,8 @@
 			
 				//gantt.config.scroll_size = 20;
 			
-				gantt.config.scale_unit = "month";
-				gantt.config.date_scale = "%Y";
+				gantt.config.scale_unit = "day";
+				gantt.config.date_scale = "%d %M %Y";
 				//gantt.config.min_column_width = 50;
 			
 				gantt.config.scale_height = 70;
@@ -476,8 +476,8 @@
 					return "";
 				};
 			
-
 				var hourToStr = gantt.date.date_to_str("%H:%i");
+
 				var hourRangeFormat = function(step){
 					return function(date){
 						var intervalEnd = new Date(gantt.date.add(date, step, "hour") - 1)
@@ -485,21 +485,22 @@
 					};
 				};
 
-				gantt.config.subscales = [  {
-					unit : "day",
-					step : 1,
-					date : "Dia %d - %M"
-				}, {
+				gantt.config.subscales = [   {
 					unit : "hour",
 					step : 1,
 					date : "%Hh"
 				} ];
 				
-
-				
-
 				var zoomConfig = {
 					levels: [
+					{
+						name:"hour",
+						//scale_height: 27,
+						min_column_width:10,
+						scales:[
+							{unit: "hour", step: 1, format: "%Hh"}
+						]
+					},
 					{
 						name:"day",
 						//scale_height: 27,
@@ -511,7 +512,7 @@
 					{
 						name:"week",
 						//scale_height: 50,
-						min_column_width:50,
+						min_column_width:100,
 						scales:[
 						{unit: "week", step: 1, format: function (date) {
 						var dateToStr = gantt.date.date_to_str("%d %M");
@@ -534,7 +535,7 @@
 						{
 						name:"quarter",
 						//height: 50,
-						min_column_width:90,
+						min_column_width:140,
 						scales:[
 						{unit: "month", step: 1, format: "%M"},
 						{
@@ -548,7 +549,7 @@
 						{
 						name:"year",
 						//scale_height: 50,
-						min_column_width: 30,
+						min_column_width: 200,
 						scales:[
 							{unit: "year", step: 1, format: "%Y"}
 						]}
