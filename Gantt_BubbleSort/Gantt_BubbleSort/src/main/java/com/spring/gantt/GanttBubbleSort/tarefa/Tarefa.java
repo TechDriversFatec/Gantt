@@ -16,6 +16,7 @@ public class Tarefa {
 	private String priority;
 	private String type;
 	private String render;
+	private String owner;
 
 	public Tarefa(){}
 
@@ -28,7 +29,8 @@ public class Tarefa {
 				  int duration,
 				  String priority,
 				  String type,
-				  String render) {
+				  String render,
+				  String owner) {
 		super();
 	
 		this.id = id;
@@ -41,6 +43,7 @@ public class Tarefa {
 		this.priority = priority;
 		this.type = type;
 		this.render = render;
+		this.owner = owner;
 	}
     
 }

@@ -28,9 +28,10 @@ public class TarefaController {
                                             @RequestParam int duration,
                                             @RequestParam String priority,
                                             @RequestParam String type,
-                                            @RequestParam String render) {
+                                            @RequestParam String render,
+                                            @RequestParam String owner) {
 		
-      Tarefa novaTarefa = new Tarefa(id,text,start_date,end_date,progress,parent,duration,priority,type,render);
+      Tarefa novaTarefa = new Tarefa(id,text,start_date,end_date,progress,parent,duration,priority,type,render,owner);
 
       tarefaRepository.save(novaTarefa);
       return "Tarefa inserida";

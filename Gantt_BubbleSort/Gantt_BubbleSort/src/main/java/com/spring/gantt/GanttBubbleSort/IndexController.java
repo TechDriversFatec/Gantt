@@ -2,12 +2,9 @@ package com.spring.gantt.GanttBubbleSort;
 
 import java.io.IOException;
 
-<<<<<<< HEAD
 import com.spring.gantt.GanttBubbleSort.funcionario.FuncionarioController;
 import com.spring.gantt.GanttBubbleSort.projeto.Projeto;
-=======
 import com.spring.gantt.GanttBubbleSort.link.LinkController;
->>>>>>> a6a1cf4946468ce38b86be73e879ebff0f79bf7b
 import com.spring.gantt.GanttBubbleSort.projeto.ProjetoController;
 
 import org.springframework.http.HttpStatus;
@@ -16,22 +13,16 @@ import com.spring.gantt.GanttBubbleSort.tarefa.*;
 
 import org.json.*;
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-=======
->>>>>>> a6a1cf4946468ce38b86be73e879ebff0f79bf7b
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-<<<<<<< HEAD
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-=======
->>>>>>> a6a1cf4946468ce38b86be73e879ebff0f79bf7b
 
 @RestController
 public class IndexController {
@@ -89,8 +80,8 @@ public class IndexController {
 							  obj.getJSONArray("data").getJSONObject(i).getString("parent"),
 							  obj.getJSONArray("data").getJSONObject(i).getInt("duration"),
 							  obj.getJSONArray("data").getJSONObject(i).getString("priority"),
-							  obj.getJSONArray("data").getJSONObject(i).getString("type"), "" );
-							//   obj.getJSONArray("data").getJSONObject(i).getJSONObject(1));
+							  obj.getJSONArray("data").getJSONObject(i).getString("type"), "",
+							  obj.getJSONArray("data").getJSONObject(i).getString("owner_id"));
 			} else if (obj.getJSONArray("data").getJSONObject(i).getString("type").equals("milestone")) {
 				tc.addNewTask(obj.getJSONArray("data").getJSONObject(i).getInt("id"),
 						 	  obj.getJSONArray("data").getJSONObject(i).getString("text"),
@@ -99,7 +90,7 @@ public class IndexController {
 						 	  obj.getJSONArray("data").getJSONObject(i).getInt("progress"),
 							  obj.getJSONArray("data").getJSONObject(i).getString("parent"),
 							  obj.getJSONArray("data").getJSONObject(i).getInt("duration"), "",
-							  obj.getJSONArray("data").getJSONObject(i).getString("type"), "" );
+							  obj.getJSONArray("data").getJSONObject(i).getString("type"), "" , "");
 			}
 		}
 
