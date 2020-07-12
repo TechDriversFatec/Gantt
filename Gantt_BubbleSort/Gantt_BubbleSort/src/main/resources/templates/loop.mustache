@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -17,14 +17,10 @@
  	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.js?v=5.2.4"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:regular,medium,thin,bold">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css?v=5.2.4">
-<<<<<<< HEAD
 	<script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>	
 	<link rel="stylesheet" href="https://docs.dhtmlx.com/gantt/codebase/dhtmlxgantt.css?v=6.0.0">
-=======
 	<script src="https://docs.dhtmlx.com/gantt/codebase/dhtmlxgantt.js?v=7.0.5"></script>
 	<link rel="stylesheet" href="https://docs.dhtmlx.com/gantt/codebase/dhtmlxgantt.css?v=7.0.5">
->>>>>>> a6a1cf4946468ce38b86be73e879ebff0f79bf7b
-	
 	
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -196,6 +192,166 @@
 			}
 
 			.weekend{ background: #f4f7f4 !important;}
+			
+			/* The Modal (background) */
+			.modal {
+			  display: none; /* Hidden by default */
+			  position: fixed; /* Stay in place */
+			  z-index: 1; /* Sit on top */
+			  padding-top: 100px; /* Location of the box */
+			  left: 0;
+			  top: 0;
+			  width: 100%; /* Full width */
+			  height: 100%; /* Full height */
+			  overflow: auto; /* Enable scroll if needed */
+			  background-color: rgb(0,0,0); /* Fallback color */
+			  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+			}
+			
+			/* Modal Content */
+			.modal-content {
+			  position: relative;
+			  background-color: #fefefe;
+			  margin: auto;
+			  padding: 0;
+			  border: 1px solid #888;
+			  width: 80%;
+			  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+			  -webkit-animation-name: animatetop;
+			  -webkit-animation-duration: 0.4s;
+			  animation-name: animatetop;
+			  animation-duration: 0.4s
+			}
+			
+			/* Add Animation */
+			@-webkit-keyframes animatetop {
+			  from {top:-300px; opacity:0} 
+			  to {top:0; opacity:1}
+			}
+			
+			@keyframes animatetop {
+			  from {top:-300px; opacity:0}
+			  to {top:0; opacity:1}
+			}
+			
+			/* The Close Button */
+			.close {
+			  color: white;
+			  float: right;
+			  font-size: 28px;
+			  font-weight: bold;
+			}
+			
+			.close:hover,
+			.close:focus {
+			  color: #000;
+			  text-decoration: none;
+			  cursor: pointer;
+			}
+			
+			.modal-header {
+			  padding: 2px 16px;
+			  background-color: #000000;
+			  color: white;
+			}
+			
+			.modal-body {padding: 2px 16px;}
+			
+			.modal-footer {
+			  padding: 2px 16px;
+			  background-color: #5cb85c;
+			  color: white;
+			}
+		h1 {
+		  	font-family: "Inconsolata", sans-serif;			
+			margin-bottom: 1rem;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		fieldset {
+			border: 0;
+		}
+
+		body, input, select, textarea {
+			height: 100%;
+  			font-family: "Inconsolata", sans-serif;			
+  			font-size: 1em;
+		}
+		
+		.grupo:before, .grupo:after {
+			content: " ";
+			display: table;
+		}
+		
+		.grupo:after {
+			clear: both;
+		}
+
+		.campo {
+			margin-bottom: 1em;
+		}
+
+		.campo label {
+			margin-bottom: 0.2em;
+			color: #666;
+			display: block;
+		}
+
+		fieldset.grupo .campo {
+			float:  left;
+			margin-right: 1em;
+		}
+
+		.campo input[type="text"],
+		.campo input[type="email"],
+		.campo input[type="url"],
+		.campo input[type="tel"],
+		.campo select,
+		.campo textarea {
+			padding: 0.2em;
+			border: 1px solid #CCC;
+			box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+			display: block;
+		}
+
+		.campo select option {
+			padding-right: 1em;
+		}
+
+		.campo input:focus, .campo select:focus, .campo textarea:focus {
+			background: #FFC;
+		}
+
+		.campo label.checkbox {
+			color: #000;
+			display: inline-block;
+			margin-right: 1em;
+		}
+
+		.botao {
+			font-size: 1.5em;
+			background: #0000c8;
+			border: 0;
+			margin-bottom: 1em;
+			color: #FFF;
+			padding: 0.2em 0.6em;
+			box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+		}
+
+		.botao:hover {
+			background: #0000c8;
+			box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
+			text-shadow: none;
+		}
+
+		.botao, select, label.checkbox {
+			cursor: pointer;
+		}
 	</style>
   </head>
   <body>
@@ -219,13 +375,37 @@
 		<br>
 		<br>
 		<br>
-
 		<button id="save" style="margin-left: 15px" class="btn"><i class="fa fa-folder"></i> SAVE</button>
+		<button style="margin-left: 15px" class="btn" id="myBtn">+ Desenvolvedor</button>
 		<br>
-		<button id="func" style="margin-left: 15px" class="btn"><i class="fa fa-folder"></i> Funcionario</button>
 		<br>
 		<div id="gantt_here" style="width:100%; height:100%;"></div>
-
+		
+			<!-- The Modal -->
+			<div id="myModal" class="modal">		
+			  <!-- Modal content -->
+			  <div class="modal-content">
+			    <div class="modal-header">
+			      <span class="close">&times;</span>
+			      <h2>Formulario:</h2>
+			    </div>
+			    <br>
+			    <div class="modal-body">
+			    
+			      <form id="form" method="post">
+			      <fieldset>
+			
+			          <div class="campo">
+			              <label for="email">Nome Completo:</label>
+			              <input type="text" required="required" id="nome" name="nome" style="width: 25em" value="" />
+			          </div>
+			          <button id="login" type="submit" class="botao submit">+ Salvar</button>
+				
+					</fieldset>
+					</form>
+			    </div>
+			  </div>
+			</div>
 		<script>
 			$(document).ready(function(){
 
@@ -394,14 +574,11 @@
 					width : '*',
 					template : RowTitle
 				}, {
-<<<<<<< HEAD
 					name:"Programadores", label:"Resources",  tree:true, width:180, template: function(task){
    				       	return task.resources;
     			} }, {
-=======
 					name: "start_date", label: "Início"
 				}, {
->>>>>>> a6a1cf4946468ce38b86be73e879ebff0f79bf7b
 				 	name : "add"
 				}];
 				
@@ -506,9 +683,6 @@
 					step : 1,
 					date : "%Hh"
 				} ];
-				
-
-				
 
 				var zoomConfig = {
 					levels: [
@@ -572,8 +746,8 @@
 									}
 				};
 
-	gantt.ext.zoom.init(zoomConfig);
-	gantt.init("gantt_here");
+				gantt.ext.zoom.init(zoomConfig);
+				gantt.init("gantt_here");
 								
 				gantt.parse(data);				    
 
@@ -596,27 +770,54 @@
 					});
 				});
 				
-				$("#func").click(function() {
-
-				// PREPARE FORM DATA
-					var funcData = JSON.stringify(userMap);
+				$('form').submit(function(e){    
+				
+					e.preventDefault();
 					
-					// DO POST
-					jQuery.ajax ({
-						url: "/funcionario",
-						type: "POST",
-						data: funcData,
-						dataType: "json",
-						contentType: "application/json; charset=utf-8",
-						success: function(){
-							alert("Success!")
-							
+					var nome = $('#nome').val().trim();
+						
+					var funcData = JSON.stringify({nome : nome});
+					
+					jQuery.ajax({
+						url : "/submitFunc",
+						type : "POST",
+						data : funcData,
+						dataType : "json",
+						contentType : "application/json; charset=utf-8",
+						success : function() {
+							alert("Save Success!")
 						}
 					});
 				});
 			});
 		</script>
-		
+		<script>
+			// Get the modal
+			var modal = document.getElementById("myModal");
+			
+			// Get the button that opens the modal
+			var btn = document.getElementById("myBtn");
+			
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+			
+			// When the user clicks the button, open the modal 
+			btn.onclick = function() {
+			  modal.style.display = "block";
+			}
+			
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() {
+			  modal.style.display = "none";
+			}
+			
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+			  if (event.target == modal) {
+			    modal.style.display = "none";
+			  }
+			}
+			</script>
 		<!-- Rodapé -->
 		<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
 		  <p>Powered by Bubble Sort</p>

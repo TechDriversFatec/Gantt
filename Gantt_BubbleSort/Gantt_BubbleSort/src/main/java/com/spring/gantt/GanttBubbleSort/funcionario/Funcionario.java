@@ -1,21 +1,24 @@
 package com.spring.gantt.GanttBubbleSort.funcionario;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Funcionario {
 	
-    @Id
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 	private String nome;
-	private String Ncadastro;
 	
 	public Funcionario(){}
 	
-	public Funcionario(String nome, String Ncadastro) {
+	public Funcionario(int id, String nome) {
 		super();
+		this.id = id;
 		this.nome = nome;
-		this.Ncadastro = Ncadastro;
 	}
 	
 	public String getNome() {
@@ -24,10 +27,13 @@ public class Funcionario {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getCadastro() {
-		return Ncadastro;
+
+	public int getId() {
+		return id;
 	}
-	public void setCadastro(String Ncadastro) {
-		this.Ncadastro = Ncadastro;
+
+	public void setId(int id) {
+		this.id = id;
 	}
+
 }

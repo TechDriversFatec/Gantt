@@ -16,10 +16,11 @@ public class FuncionarioController {
     private FuncionarioRepository  funcionarioRepository;
 	
     @PostMapping("/addFunc")
-    public @ResponseBody String addFunc(@RequestParam String nome,
-            @RequestParam String Ncadastro) {
-
-		Funcionario func = new Funcionario(nome,Ncadastro);
+    public @ResponseBody String addFunc(@RequestParam int id, @RequestParam String nome) {
+    	
+    	System.out.println(nome);
+    	
+		Funcionario func = new Funcionario(0,nome);
 		
 		funcionarioRepository.save(func);
 		return "Saved";
