@@ -26,10 +26,10 @@ public class ViewController {
 	public String index() {
 		return "index";
 	}
-
-	@RequestMapping("/test")
-	public String test() {
-		return "test";
+	
+	@RequestMapping("/devs")
+	public String devs() {
+		return "funcionario";
 	}
 	
 	@RequestMapping("/ganttTasks")
@@ -46,7 +46,6 @@ public class ViewController {
 		model.addAttribute("tarefas", tarefas);
 		model.addAttribute("projetos", projetos);
 
-		// return "ganttTasks";
 		return "loop";
 	}
 	

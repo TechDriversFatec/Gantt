@@ -17,7 +17,7 @@
  	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.js?v=5.2.4"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:regular,medium,thin,bold">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css?v=5.2.4">
-	<script src="https://docs.dhtmlx.com/gantt/codebase/dhtmlxgantt.js?v=6.0.0"></script>
+	<script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>	
 	<link rel="stylesheet" href="https://docs.dhtmlx.com/gantt/codebase/dhtmlxgantt.css?v=6.0.0">
 	
 	
@@ -204,7 +204,7 @@
 		      <a href="/ganttTasks" class="w3-button w3-block w3-black">GANTT</a>
 		    </div>
 		    <div class="w3-col s3">
-		      <a href="/report" class="w3-button w3-block w3-black">REPORT</a>
+		      <a href="/devs" class="w3-button w3-block w3-black">Desenvolvedores</a>
 		    </div>
 		    <div class="w3-col s3">
 		      <a href="https://gitlab.com/gurst6/projeto-integrador-gantt" class="w3-button w3-block w3-black">GIT</a>
@@ -217,8 +217,9 @@
 
 		<button id="save" style="margin-left: 15px" class="btn"><i class="fa fa-folder"></i> SAVE</button>
 		<br>
+		<button id="func" style="margin-left: 15px" class="btn"><i class="fa fa-folder"></i> Funcionario</button>
 		<br>
-		<div id="gantt_here" style="width: 100%; height: 100%;"></div>
+		<div id="gantt_here" style="width:100%; height:100%;"></div>
 
 		<script>
 			$(document).ready(function(){
@@ -259,12 +260,9 @@
 					width : '*',
 					template : RowTitle
 				}, {
-					name: "resources", label: "Resources",
-					template: function (item) {
-						if (!item.usage) return "";
-						return helper.getArrayForTemplate(item.usage, usageMap).join("; ");
-					}
-				}, {
+					name:"Programadores", label:"Resources",  tree:true, width:180, template: function(task){
+   				       	return task.resources;
+    			} }, {
 				 	name : "add"
 				}];
 				
@@ -483,6 +481,25 @@
 						url: "/salvar",
 						type: "POST",
 						data: formData,
+						dataType: "json",
+						contentType: "application/json; charset=utf-8",
+						success: function(){
+							alert("Success!")
+							
+						}
+					});
+				});
+				
+				$("#func").click(function() {
+
+				// PREPARE FORM DATA
+					var funcData = JSON.stringify(userMap);
+					
+					// DO POST
+					jQuery.ajax ({
+						url: "/funcionario",
+						type: "POST",
+						data: funcData,
 						dataType: "json",
 						contentType: "application/json; charset=utf-8",
 						success: function(){
