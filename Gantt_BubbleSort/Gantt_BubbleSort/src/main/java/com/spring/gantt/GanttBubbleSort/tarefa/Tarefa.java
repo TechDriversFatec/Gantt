@@ -11,7 +11,7 @@ public class Tarefa {
 	private String start_date;
 	private String end_date;
 	private int progress;
-	private int parent;
+	private String parent;
 	private int duration;
 	private String priority;
 	private String type;
@@ -24,7 +24,7 @@ public class Tarefa {
 				  String start_date,
 				  String end_date,
 				  int progress,
-				  int parent,
+				  String parent,
 				  int duration,
 				  String priority,
 				  String type,

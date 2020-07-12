@@ -24,7 +24,7 @@ public class TarefaController {
                                             @RequestParam String start_date,
                                             @RequestParam String end_date,
                                             @RequestParam int progress,
-                                            @RequestParam int parent,
+                                            @RequestParam String parent,
                                             @RequestParam int duration,
                                             @RequestParam String priority,
                                             @RequestParam String type,
