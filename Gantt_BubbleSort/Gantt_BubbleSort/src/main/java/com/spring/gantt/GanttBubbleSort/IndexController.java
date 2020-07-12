@@ -2,7 +2,12 @@ package com.spring.gantt.GanttBubbleSort;
 
 import java.io.IOException;
 
+<<<<<<< HEAD
+import com.spring.gantt.GanttBubbleSort.funcionario.FuncionarioController;
+import com.spring.gantt.GanttBubbleSort.projeto.Projeto;
+=======
 import com.spring.gantt.GanttBubbleSort.link.LinkController;
+>>>>>>> a6a1cf4946468ce38b86be73e879ebff0f79bf7b
 import com.spring.gantt.GanttBubbleSort.projeto.ProjetoController;
 
 import org.springframework.http.HttpStatus;
@@ -11,9 +16,22 @@ import com.spring.gantt.GanttBubbleSort.tarefa.*;
 
 import org.json.*;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+=======
+>>>>>>> a6a1cf4946468ce38b86be73e879ebff0f79bf7b
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+<<<<<<< HEAD
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+=======
+>>>>>>> a6a1cf4946468ce38b86be73e879ebff0f79bf7b
 
 @RestController
 public class IndexController {
@@ -26,6 +44,23 @@ public class IndexController {
 
 	@Autowired
 	LinkController lc = new LinkController();
+	
+	@Autowired
+	FuncionarioController fc = new FuncionarioController();
+	
+	@PostMapping(value = "/submitFunc")
+	public ResponseEntity<Object> salvarFunc(@RequestBody final String funcData) throws IOException {
+				
+		final JSONObject obj = new JSONObject(funcData);
+		
+		for (int i = 0; i < obj.length(); i++) {
+			fc.addFunc(obj.getString("nome"),
+					   obj.getString("Ncadastro"));
+		}
+		
+		return new ResponseEntity<Object>(funcData, HttpStatus.OK);
+	}
+
 	
 	@PostMapping(value = "/salvar")
 	public ResponseEntity<Object> salvar(@RequestBody final String formData) throws IOException {

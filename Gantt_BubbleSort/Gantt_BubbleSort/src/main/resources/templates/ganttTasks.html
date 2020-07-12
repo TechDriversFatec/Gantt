@@ -11,12 +11,13 @@
 	<link href="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.css" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.min.js"></script>
 	<script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>	
-	<script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>
 	<script src="https://export.dhtmlx.com/gantt/api.js?v=20180322"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://docs.dhtmlx.com/gantt/codebase/dhtmlxgantt.js?v=6.0.0"></script>
+	<link rel="stylesheet" href="https://docs.dhtmlx.com/gantt/codebase/dhtmlxgantt.css?v=6.0.0">
 	
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -281,31 +282,17 @@
 				
 				var data = {
 					"data" : [ 
-						{{#projetos}}
 						{
-							"id" : "[[{{id}}]]",
-							"text" : "{{text}}",
-							"start_date" : "[[{{start_date}}]]",
-							"end_date" : "[[{{end_date}}]]",
+							"id" : "1",
+							"text" : "teste",
+							"start_date" : "11-07-2020",
+							"end_date" : null,
 							"status" : "On Track",
 							"order" : 10,
-							"progress" : "[[{{progress}}]]",
-							"type" : "[[{{type}}]]",
+							"progress" : null,
+							"type" : "project",
 							"open" : true
 						},
-						{{/projetos}}
-						{{#tarefas}}
-						{
-							"id" : "[[{{id}}]]",
-							"text" : "{{text}}",
-							"start_date" : "[[{{start_date}}]]",
-							"end_date" : "[[{{end_date}}]]",
-							"status" : "On Track",
-							"order" : 10,
-							"progress" : 0,
-							"parent" : "[[{{parent}}]]"
-						},
-						{{/tarefas}}
 					],
 					"links" : [
 					//  { "id":1, "source":1, "target":2, "type":"0"},
