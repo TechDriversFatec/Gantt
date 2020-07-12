@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller // This means that this class is a Controller
+@Controller
 @RequestMapping(path="/projeto")
 public class ProjetoController {
     
     @Autowired
     private ProjetoRepository projetoRepository;
 
-    @PostMapping(path="/addProjeto") // Map ONLY POST Requests
+    @PostMapping(path="/addProjeto")
     public @ResponseBody String addProjeto (@RequestParam int id,
                                             @RequestParam String text,
                                             @RequestParam String start_date,
