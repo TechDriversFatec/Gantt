@@ -6,11 +6,9 @@ import com.spring.gantt.GanttBubbleSort.funcionario.FuncionarioController;
 import com.spring.gantt.GanttBubbleSort.projeto.Projeto;
 import com.spring.gantt.GanttBubbleSort.link.LinkController;
 import com.spring.gantt.GanttBubbleSort.projeto.ProjetoController;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import com.spring.gantt.GanttBubbleSort.tarefa.*;
-
 import org.json.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,12 +41,9 @@ public class IndexController {
 	public ResponseEntity<Object> salvarFunc(@RequestBody final String funcData) throws IOException {
 				
 		final JSONObject obj = new JSONObject(funcData);
-		
-		for (int i = 0; i < obj.length(); i++) {
-			fc.addFunc(obj.getString("nome"),
-					   obj.getString("Ncadastro"));
-		}
-		
+				
+		fc.addFunc(obj.getString("label"));
+				
 		return new ResponseEntity<Object>(funcData, HttpStatus.OK);
 	}
 

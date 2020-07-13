@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.spring.gantt.GanttBubbleSort.funcionario.Funcionario;
+import com.spring.gantt.GanttBubbleSort.funcionario.FuncionarioController;
 import com.spring.gantt.GanttBubbleSort.link.Link;
 import com.spring.gantt.GanttBubbleSort.link.LinkController;
 import com.spring.gantt.GanttBubbleSort.projeto.Projeto;
@@ -27,6 +29,9 @@ public class ViewController {
 	@Autowired
 	LinkController lc = new LinkController();
 
+	@Autowired
+	FuncionarioController fc = new FuncionarioController();
+
 	@RequestMapping("/")
 	public String index() {
 		return "index";
@@ -44,15 +49,18 @@ public class ViewController {
 		final ArrayList<Tarefa> tarefas = new ArrayList<>();
 		final ArrayList<Projeto> projetos = new ArrayList<>();
 		final ArrayList<Link> links = new ArrayList<>();
+		final ArrayList<Funcionario> funcionarios = new ArrayList<>();
 
 		// tc.getAllTarefas();
 		tarefas.addAll(tc.getAllTarefas());
 		projetos.addAll(pc.getAllProjetos());
 		links.addAll(lc.getAllLinks());
+		funcionarios.addAll(fc.getAllFuncionarios());
 
 		model.addAttribute("tarefas", tarefas);
 		model.addAttribute("projetos", projetos);
 		model.addAttribute("links", links);
+		model.addAttribute("funcionarios", funcionarios);
 
 		return "loop";
 	}

@@ -1,33 +1,40 @@
 package com.spring.gantt.GanttBubbleSort.funcionario;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Funcionario {
 	
-    @Id
-	private String nome;
-	private String Ncadastro;
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int key;
+	private String label;
 	
 	public Funcionario(){}
 	
-	public Funcionario(String nome, String Ncadastro) {
+	public Funcionario(String label) {
 		super();
-		this.nome = nome;
-		this.Ncadastro = Ncadastro;
+		this.label = label;
 	}
 	
-	public String getNome() {
-		return nome;
+	public String getlabel() {
+		return label;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setlabel(String label) {
+		this.label = label;
 	}
-	public String getCadastro() {
-		return Ncadastro;
+
+	public int getId() {
+		return key;
 	}
-	public void setCadastro(String Ncadastro) {
-		this.Ncadastro = Ncadastro;
+
+	public void setId(int key) {
+		this.key = key;
 	}
+
 }

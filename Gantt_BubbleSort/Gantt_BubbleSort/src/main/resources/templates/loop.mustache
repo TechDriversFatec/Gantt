@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -19,8 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css?v=5.2.4">
 	<script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>	
 	<link rel="stylesheet" href="https://docs.dhtmlx.com/gantt/codebase/dhtmlxgantt.css?v=6.0.0">
-	<script src="https://docs.dhtmlx.com/gantt/codebase/dhtmlxgantt.js?v=7.0.5"></script>
-	<link rel="stylesheet" href="https://docs.dhtmlx.com/gantt/codebase/dhtmlxgantt.css?v=7.0.5">
+	<script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>
 	
 	
 	<!-- Bootstrap CSS -->
@@ -193,6 +192,166 @@
 			}
 
 			.weekend{ background: #f4f7f4 !important;}
+			
+			/* The Modal (background) */
+			.modal {
+			  display: none; /* Hidden by default */
+			  position: fixed; /* Stay in place */
+			  z-index: 1; /* Sit on top */
+			  padding-top: 100px; /* Location of the box */
+			  left: 0;
+			  top: 0;
+			  width: 100%; /* Full width */
+			  height: 100%; /* Full height */
+			  overflow: auto; /* Enable scroll if needed */
+			  background-color: rgb(0,0,0); /* Fallback color */
+			  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+			}
+			
+			/* Modal Content */
+			.modal-content {
+			  position: relative;
+			  background-color: #fefefe;
+			  margin: auto;
+			  padding: 0;
+			  border: 1px solid #888;
+			  width: 80%;
+			  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+			  -webkit-animation-name: animatetop;
+			  -webkit-animation-duration: 0.4s;
+			  animation-name: animatetop;
+			  animation-duration: 0.4s
+			}
+			
+			/* Add Animation */
+			@-webkit-keyframes animatetop {
+			  from {top:-300px; opacity:0} 
+			  to {top:0; opacity:1}
+			}
+			
+			@keyframes animatetop {
+			  from {top:-300px; opacity:0}
+			  to {top:0; opacity:1}
+			}
+			
+			/* The Close Button */
+			.close {
+			  color: white;
+			  float: right;
+			  font-size: 28px;
+			  font-weight: bold;
+			}
+			
+			.close:hover,
+			.close:focus {
+			  color: #000;
+			  text-decoration: none;
+			  cursor: pointer;
+			}
+			
+			.modal-header {
+			  padding: 2px 16px;
+			  background-color: #000000;
+			  color: white;
+			}
+			
+			.modal-body {padding: 2px 16px;}
+			
+			.modal-footer {
+			  padding: 2px 16px;
+			  background-color: #5cb85c;
+			  color: white;
+			}
+		h1 {
+		  	font-family: "Inconsolata", sans-serif;			
+			margin-bottom: 1rem;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		fieldset {
+			border: 0;
+		}
+
+		body, input, select, textarea {
+			height: 100%;
+  			font-family: "Inconsolata", sans-serif;			
+  			font-size: 1em;
+		}
+		
+		.grupo:before, .grupo:after {
+			content: " ";
+			display: table;
+		}
+		
+		.grupo:after {
+			clear: both;
+		}
+
+		.campo {
+			margin-bottom: 1em;
+		}
+
+		.campo label {
+			margin-bottom: 0.2em;
+			color: #666;
+			display: block;
+		}
+
+		fieldset.grupo .campo {
+			float:  left;
+			margin-right: 1em;
+		}
+
+		.campo input[type="text"],
+		.campo input[type="email"],
+		.campo input[type="url"],
+		.campo input[type="tel"],
+		.campo select,
+		.campo textarea {
+			padding: 0.2em;
+			border: 1px solid #CCC;
+			box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+			display: block;
+		}
+
+		.campo select option {
+			padding-right: 1em;
+		}
+
+		.campo input:focus, .campo select:focus, .campo textarea:focus {
+			background: #FFC;
+		}
+
+		.campo label.checkbox {
+			color: #000;
+			display: inline-block;
+			margin-right: 1em;
+		}
+
+		.botao {
+			font-size: 1.5em;
+			background: #0000c8;
+			border: 0;
+			margin-bottom: 1em;
+			color: #FFF;
+			padding: 0.2em 0.6em;
+			box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+		}
+
+		.botao:hover {
+			background: #0000c8;
+			box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
+			text-shadow: none;
+		}
+
+		.botao, select, label.checkbox {
+			cursor: pointer;
+		}
 	</style>
   </head>
   <body>
@@ -216,30 +375,57 @@
 		<br>
 		<br>
 		<br>
-
 		<button id="save" style="margin-left: 15px" class="btn"><i class="fa fa-folder"></i> SAVE</button>
+		<button style="margin-right: 15px; float: right;" class="btn" id="myBtn">+ Funcionário</button>
 		<br>
-		<button id="func" style="margin-left: 15px" class="btn"><i class="fa fa-folder"></i> Funcionario</button>
 		<br>
 		<div id="gantt_here" style="width:100%; height:100%;"></div>
-
+		
+		<!-- The Modal -->
+		<div id="myModal" class="modal" style="width: 50%; height: 50%; left: 25%; top: 25% ">		
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<span class="close">&times;</span>
+					<h2>Formulario:</h2>
+				</div>
+				<br>
+				<div class="modal-body">
+				
+					<form id="form" method="post">
+					<fieldset>
+			
+						<div class="campo">
+							<label for="email">Nome Completo:</label>
+							<input type="text" required="required" id="label" name="label" style="width: 100%" value="" />
+						</div>
+						<button id="login" type="submit" class="botao submit">+ Salvar</button>
+				
+					</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+		
 		<script>
 			$(document).ready(function(){
 
 				gantt.config.wide_form = true; 
 				gantt.config.resource_property = "user_id";
 
-				gantt.serverList("people", [
-					{key: 1, label: "John"},
-					{key: 2, label: "Mike"},
-					{key: 3, label: "Anna"},
-					{key: 4, label: "Bill"},
-					{key: 7, label: "Floe"}
-				]);
-
 				//----------------------------------------------------------------------------------
 				// Carregamento dos dados ----------------------------------------------------------
 				//----------------------------------------------------------------------------------
+				
+				gantt.serverList("people", [
+					{{#funcionarios}}
+					{
+						key: "{{id}}",
+						label: "{{label}}"
+					},
+					{{/funcionarios}}
+				]);
+
 				var data = {
 					"data" : [ 
 						{{#projetos}}
@@ -364,6 +550,10 @@
 						resources_filter_label: "Esconder vazios"
 					}
 				});
+
+				gantt.locale.labels.section_owner = "Responsável"
+				gantt.locale.labels.section_split = "Dividir"
+				gantt.locale.labels.section_priority = "Prioridade"
 				//----------------------------------------------------------------------------------
 				
 				gantt.templates.scale_cell_class = function(date){
@@ -379,7 +569,7 @@
 	
 				var formatter = gantt.ext.formatters.durationFormatter({
 									enter: "hour", 
-									store: "hour", // duration_unit
+									store: "hour",
 									format: "hour"
 								});
 				
@@ -392,60 +582,46 @@
 				}, {
 					name: "owner", label : "Responsável", width: 80, align: "center", template: function (item) {
 						for (var i = 0; i < gantt.serverList('people').length; i++){
-							// look for the entry with a matching `code` value
 							if (gantt.serverList('people')[i].key == item.owner_id){
-								// we found it
-								// obj[i].name is the matched result
 								return gantt.serverList('people')[i].label
 							}
 						}
-						}
+					}
+				}, {
+					name: "start_date", label: "Início"
 				}, {
 				 	name : "add"
 				}];
-				
-				gantt.locale.labels.section_owner = "Responsável"
-				gantt.locale.labels.section_split = "Dividir"
-				gantt.locale.labels.section_priority = "Prioridade"
 				
 				//----------------------------------------------------------------------------------
 				// Configuração das telas de crud --------------------------------------------------
 				//----------------------------------------------------------------------------------
 								
 				gantt.config.lightbox.sections = [
-					{name: "type", type: "typeselect", map_to: "type"},
-					{name:"priority", label: "Prioridade", height:22, map_to:"priority", type:"select", options: [ 
+					{name: "type", type: "typeselect", height:30, map_to: "type"},
+					{name:"priority", label: "Prioridade", height:30, map_to:"priority", type:"select", options: [ 
 						{key:1, label: "Alta"},                                               
 						{key:2, label: "Média"},                                             
 						{key:3, label: "Baixa"}                                                 
 					]},
-					{name:"description", height:38, map_to:"text", type:"textarea", focus:true},
-        			{name:"owner", map_to:"owner_id", type:"select", options:gantt.serverList("people")}, 
-        			{name: "time", type: "duration", map_to: "auto", formatter: formatter},
-					{name: "split", label: "Dividir", type:"checkbox", map_to: "render", options:[
-						{key:"split", label:"Dividir tarefa"}
-					]}
+					{name:"description", height:60, map_to:"text", type:"textarea", focus:true},
+        			{name:"owner", map_to:"owner_id", height:30, type:"select", options:gantt.serverList("people")}, 
+        			{name: "time", type: "duration", height:40, map_to: "auto", formatter: formatter},
 				];				
 
 				gantt.config.lightbox.project_sections = [
-					{name: "type", type: "typeselect", map_to: "type"},
-					{name:"priority", height:22, map_to:"priority", type:"select", options: [ 
-						{key:1, label: "High"},                                               
-						{key:2, label: "Normal"},                                             
-						{key:3, label: "Low"}                                                 
+					{name: "type", type: "typeselect", height:30, map_to: "type"},
+					{name:"priority", height:30, map_to:"priority", type:"select", options: [ 
+						{key:1, label: "Alta"},                                               
+						{key:2, label: "Média"},                                             
+						{key:3, label: "Baixa"}                                                 
 					]},
-					{name:"description", height:38, map_to:"text", type:"textarea", focus:true},
-					{name: "split", type:"checkbox", map_to: "render", options:[
-						{key:"split", label:"Split Task"}
-					]}
+					{name:"description", height:30, map_to:"text", type:"textarea", focus:true},
 				];	
 
 				gantt.config.lightbox.milestone_sections = [
-					{name: "type", type: "typeselect", map_to: "type"},
-					{name:"description", height:38, map_to:"text", type:"textarea", focus:true},
-					{name: "split", type:"checkbox", map_to: "render", options:[
-						{key:"split", label:"Split Task"}
-					]}
+					{name: "type", type: "typeselect", height:30, map_to: "type"},
+					{name:"description", height:30, map_to:"text", type:"textarea", focus:true},
 				];	
 				// ------------------------------------------------------------------------------
 				
@@ -498,7 +674,7 @@
 					step : 1,
 					date : "%Hh"
 				} ];
-				
+
 				var zoomConfig = {
 					levels: [
 					{
@@ -592,27 +768,68 @@
 					});
 				});
 				
-				$("#func").click(function() {
-
-				// PREPARE FORM DATA
-					var funcData = JSON.stringify(userMap);
+				$('form').submit(function(e){    
+				
+					e.preventDefault();
 					
-					// DO POST
-					jQuery.ajax ({
-						url: "/funcionario",
-						type: "POST",
-						data: funcData,
-						dataType: "json",
-						contentType: "application/json; charset=utf-8",
-						success: function(){
-							alert("Success!")
+					var label = $('#label').val().trim();
+						
+					var funcData = JSON.stringify({label : label});
+					
+					jQuery.ajax({
+						url : "/submitFunc",
+						type : "POST",
+						data : funcData,
+						dataType : "json",
+						contentType : "application/json; charset=utf-8",
+						success : function() {
+							gantt.message("Funcionário cadastrado.");
 							
 						}
 					});
+
+					jQuery.ajax({
+						url : "/funcionario/getFuncionarios",
+						type : "GET",
+						dataType : "json",
+						contentType : "application/json; charset=utf-8",
+						success : function(data) {
+							var res = JSON.parse(JSON.stringify(gantt.serverList("people")).replace("id", "key"));
+							gantt.updateCollection("people", res);
+						}
+					});
+					modal.style.display = "none";
+								
 				});
 			});
 		</script>
-		
+		<script>
+			// Get the modal
+			var modal = document.getElementById("myModal");
+			
+			// Get the button that opens the modal
+			var btn = document.getElementById("myBtn");
+			
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+			
+			// When the user clicks the button, open the modal 
+			btn.onclick = function() {
+			  modal.style.display = "block";
+			}
+			
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() {
+			  modal.style.display = "none";
+			}
+			
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+			  if (event.target == modal) {
+			    modal.style.display = "none";
+			  }
+			}
+			</script>
 		<!-- Rodapé -->
 		<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
 		  <p>Powered by Bubble Sort</p>
